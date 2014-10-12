@@ -11,12 +11,13 @@ body {
 	border-radius: 0.5rem;
 	height: auto;
 	margin: 0 auto;
-	margin-top: 10%;
+	margin-top: 7%;
 	padding: 2rem;
 	padding-bottom: 0;
 	text-align: center;
 	vertical-align: middle;
 	width: 50%;
+	max-width: 500px;
 	-moz-box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
 	-webkit-box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
 	box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
@@ -24,6 +25,7 @@ body {
 
 #logo{
 	width: 50%;
+	min-width: 180px;
 	margin: 0 auto;
 	text-align: center;
 	margin-bottom: 3rem;
@@ -57,13 +59,14 @@ form .form-dps{
 }
 
 form .form-dps:active, .form-dps:focus{
-	border: inset 3px #0194d3;
-	border-style: solid;
-	-webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;;
 	outline: none;
-	color: #0194d3;
+	color: #fff;
+	background-color: #3e97cf;
+	font-weight: 100;
+}
+
+form .form-dps placeholder{
+	color: #ff99ee;
 }
 
 
