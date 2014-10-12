@@ -57,7 +57,7 @@ form .form-dps{
 }
 
 form .form-dps:active, .form-dps:focus{
-	border: 3px #0194d3;
+	border: inset 3px #0194d3;
 	border-style: solid;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
