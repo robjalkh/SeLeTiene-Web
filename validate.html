@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Validar</title>
+	<link rel="stylesheet" href="css/estilos.css">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+	<meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+<body>
+	<div id="form-comp">
+		<div class="form-valid">
+			<br>
+			<br>
+			<div id="logo">
+				<img src="images/logo.svg" alt="Se le tiene">
+			</div>
+			<form class="validando" action="">
+				<div>
+					<label>Nombre</label>
+					<br>
+					<input type="name" placeholder=" Ej. Pepito Pérez" />
+				</div>
+				<div>
+				  <label>Email</label>
+				  <br>
+				  <input type="email" placeholder=" ejemplo@mail.com" />
+				</div>
+				<div>
+				  <label>Teléfono</label>
+				  <br>
+				  <input type="tel" placeholder=" Ej. 7 6357890" />
+				</div>
+			</form>
+			
+			<form class="validando" action="">
+				<div>
+				  <label>Celular </label>
+				  <br>
+				  <input type="tel" placeholder=" Ej. 300 555 55 55" />
+				</div>
+				<div>
+					<label>Departamento</label>
+					<br>
+					<select class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" >
+						<option>Cundinamarca</option>
+						<option>Opción 2</option>
+						<option>Opción 3</option>
+					</select>
+				</div>
+				<div>
+				  <label>Barrio</label>
+				  <br>
+			  	  <input type="text" placeholder=" Ej. La Esmeralda" />
+			  	</div>
+			</form>
+		</div>
+		<hr>
+
+		<div class="form-valid" id="ofrece">
+			<form class="validando" action="">
+				<div class="oferta">
+					<label>Oferta</label>
+					<br>
+					<input type="name" placeholder=" Ej. Empanadas" />
+				</div>
+			</form>
+			<form class="validando" id="subir-div" action="">
+				<div class="oferta">
+					<label>Producto o Servicio</label>
+					<br>
+					<select class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" >
+						<option>Producto</option>
+						<option>Servicio</option>
+					</select>
+				</div>
+			</form>
+		</div>
+		<div class="barra-agregar">
+			<button class="agregar">+</button>
+		</div>
+		<div id="send" class="send-validate">
+			<input type="submit" value="Validar">
+		</div>
+
+	</div>
+
+</body>
+		
+</html>

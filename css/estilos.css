@@ -3,6 +3,8 @@ body {
 	background: url(../images/bg.svg);
 	background-size: 350px;
 	background-color:#fff;
+	text-align: center;
+	margin:0 auto;
 
 }
 
@@ -26,6 +28,7 @@ body {
 #logo{
 	width: 50%;
 	min-width: 180px;
+	max-width: 250px;
 	margin: 0 auto;
 	text-align: center;
 	margin-bottom: 3rem;
@@ -72,12 +75,12 @@ form .form-dps placeholder{
 
 
 
-form #send{
+#send{
 	text-align: center;
 	margin: auto;
 }
 
-form #send input{
+#send input{
 	width: 99%;
 	background: #0054a6; /* Old browsers */
 	background: -moz-linear-gradient(top,  #0054a6 1%, #002960 100%); /* FF3.6+ */
@@ -99,7 +102,7 @@ form #send input{
 	
 }
 
-form #send input:hover{
+#send input:hover{
 	background: #3e97cf; /* Old browsers */
 	background: -moz-linear-gradient(top,  #3e97cf 0%, #0054a6 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3e97cf), color-stop(100%,#0054a6)); /* Chrome,Safari4+ */
@@ -220,7 +223,7 @@ table {
 	border-radius: 0 6px 0 0
 	*/
 }
-button.validate{
+button.validate, button.agregar{
 	background: #0054a6; /* Old browsers */
 	background: -moz-linear-gradient(top,  #0054a6 1%, #002960 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#0054a6), color-stop(100%,#002960)); /* Chrome,Safari4+ */
@@ -237,7 +240,7 @@ button.validate{
 	font-weight: 100;
 }
 
-button.validate:hover {
+button.validate:hover, button.agregar:hover {
 	background: #3e97cf; /* Old browsers */
 	background: -moz-linear-gradient(top,  #3e97cf 0%, #0054a6 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3e97cf), color-stop(100%,#0054a6)); /* Chrome,Safari4+ */
@@ -250,7 +253,9 @@ button.validate:hover {
 }
 
 button.validate:active,
-button.validate:focus{
+button.validate:focus
+button.agregar:active,
+button.agregar:focus {
 	outline:none;
 	box-shadow: 0 0 5px #0194d3;
 }
@@ -285,17 +290,142 @@ button.logout:focus{
 
 }
 
-ul{
-	margin:10px;
-}
-
-ul h3{
-	font-size: 16px;
-	margin-right: 10px;
-	font-weight: 300;
-}
-
-li{
-	display: inline-block;
+.info-top ul{
 	list-style: none;
+	text-decoration: none;
 }
+
+.info-top ul li{
+	display: inline-block;
+	margin-right: 10px;
+}
+
+
+.form-valid{
+
+}
+
+
+#form-comp {
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 0.5rem;
+	max-width: 800px;
+	width: 80%;
+	-moz-box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+	display: inline-block;
+	margin: 20px 20px;
+	text-align: center;
+}
+
+
+.validando{
+	width: 40%;
+	display: inline-block;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px 10px;
+}
+
+.validando-full{
+	background-color: #ff66ee;
+	margin: 0 auto;
+	text-align: left;
+	margin-top: 40px;
+}
+.validando-full div{
+	display: inline-block;
+	text-align: left;
+	margin: 10px;
+
+}
+
+.validando div{
+	margin-bottom: 20px;
+}
+
+.validando input, .validando-full input, .validando input select, .validando-full input select{
+	border-style:none;
+	height: 3rem;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: 100;
+	background-color: #f7f7f7;
+	-moz-box-shadow:   inset 0 0 7px rgba(0,0,0,0.3);
+   -webkit-box-shadow: inset 0 0 7px rgba(0,0,0,0.3);
+   box-shadow:         inset 0 0 7px rgba(0,0,0,0.3);
+   padding:5px 5px 5px 5px;
+   width: 95%;
+}
+
+select{
+	width: 100%;
+}
+
+
+.validando input:active, 
+.validando input:focus,
+.validando-full input:active,
+.validando-full input:focus{
+	outline: none;
+	color: #fff;
+	background-color: #3e97cf;
+	font-weight: 100;
+}
+
+.form-valid{
+	width: auto;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	padding: 0 10px;
+}
+
+.combo{
+    border-style:none;
+	height: 3.6rem;
+	border-radius: 5px;
+	font-size: 20px;
+	font-weight: 100;
+	background-color: #f7f7f7;
+	-moz-box-shadow:    inset 0 0 7px rgba(0,0,0,0.3);
+   -webkit-box-shadow: inset 0 0 7px rgba(0,0,0,0.3);
+   box-shadow:         inset 0 0 7px rgba(0,0,0,0.3);
+    text-overflow: ellipsis;
+    color: #b2b2b2;
+}
+
+.send-validate{
+	width: 85%;
+}
+
+button.agregar{
+	font-size: 22px !important;
+	margin-top: -30px;
+	margin-bottom: 50px;
+}
+
+@media (max-width: 800px) {
+  .validando {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+  .validando input{
+  	width: 95%;
+  }
+  .validando div{
+  	margin-bottom: 20px;
+  }
+  .combo {
+  	width:98%;
+  }
+  .form-valid{
+	padding: 0 10px;
+  }
+#subir-div{
+	margin-top: -40px;
+}
+}
+
