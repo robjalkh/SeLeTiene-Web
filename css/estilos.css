@@ -159,7 +159,7 @@ table {
 }
 
 .bordered tr:hover {
-    background: #d8eaf5;
+    background: #dfdfdf;
     -o-transition: all 0.1s ease-in-out;
     -webkit-transition: all 0.1s ease-in-out;
     -moz-transition: all 0.1s ease-in-out;
@@ -220,8 +220,15 @@ table {
 	border-radius: 0 6px 0 0
 	*/
 }
-button.validate, button.logout{
-	background-color: #0054a6;
+button.validate{
+	background: #0054a6; /* Old browsers */
+	background: -moz-linear-gradient(top,  #0054a6 1%, #002960 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(1%,#0054a6), color-stop(100%,#002960)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #0054a6 1%,#002960 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #0054a6 1%,#002960 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #0054a6 1%,#002960 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #0054a6 1%,#002960 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0054a6', endColorstr='#002960',GradientType=0 ); /* IE6-9 */
 	border: none;
 	border-radius: 0.25rem;
 	font-size: 14px;
@@ -231,7 +238,15 @@ button.validate, button.logout{
 }
 
 button.validate:hover {
-	background-color: #0194d3;
+	background: #3e97cf; /* Old browsers */
+	background: -moz-linear-gradient(top,  #3e97cf 0%, #0054a6 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3e97cf), color-stop(100%,#0054a6)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #3e97cf 0%,#0054a6 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #3e97cf 0%,#0054a6 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #3e97cf 0%,#0054a6 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #3e97cf 0%,#0054a6 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3e97cf', endColorstr='#0054a6',GradientType=0 ); /* IE6-9 */
+	cursor: pointer;
 }
 
 button.validate:active,
@@ -242,10 +257,18 @@ button.validate:focus{
 
 button.logout{
 	background-color: #aa171d;
+	border: none;
+	border-radius: 0.25rem;
+	font-size: 14px;
+	padding:7px 20px;
+	color: #fff;
+	font-weight: 100
 }
 
 button.logout:hover{
 	background-color: #909090;
+	outline:none;
+	cursor: pointer;
 }
 
 button.logout:active,
