@@ -153,9 +153,9 @@ table {
     -moz-border-radius: 6px;
     -webkit-border-radius: 6px;
     border-radius: 6px;
-    -webkit-box-shadow: 0 1px 1px #ccc; 
-    -moz-box-shadow: 0 1px 1px #ccc; 
-    box-shadow: 0 1px 1px #ccc;         
+    -moz-box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 3px 10px rgba(0,0,0,0.3);
+	box-shadow: 0px 3px 10px rgba(0,0,0,0.3);       
 }
 
 .bordered tr:hover {
