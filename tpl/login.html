@@ -1,0 +1,24 @@
+<div id="main">
+	<div id="logo">
+		<img src="images/logo.svg" alt="Se le tiene">
+	</div>
+	<div>
+		<form  ng-submit="sendLogin()">
+			<div class="txt-area">
+				<label for="">Email</label>
+				<input ng-model="user.username" name="username" type="email" class="form-dps" placeholder="ejemplo@correo.com">
+			</div>
+			<div class="txt-area">
+				<label for="">Contraseña</label>
+				<input ng-model="user.password" name="password" type="password" class="form-dps" placeholder="******">
+			</div>
+			<div id="send">
+				<input type="submit" value="Enviar">
+			</div>
+		</form>
+	</div>
+</div>
+<div id="dps">
+	<h3>Un producto</h3>
+	<img src="images/logo-dps.png" alt="">
+</div>

@@ -1,37 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="logic">
 <head>
 	<meta charset="UTF-8">
 	<title>Se le tiene - Login</title>
 	<link rel="stylesheet" href="css/estilos.css">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
 	<meta name="viewport" content="width=device-width,initial-scale=1"/>
 </head>
 <body>
-	<div id="main">
-		<div id="logo">
-			<img src="images/logo.svg" alt="Se le tiene">
-		</div>
-			<div>
-				<form action="">
-					<div class="txt-area">
-						<label for="">Email</label>
-						<input type="email" class="form-dps" placeholder="ejemplo@correo.com">
-					</div>
-					<div class="txt-area">
-						<label for="">Contraseña</label>
-						<input type="password" class="form-dps" placeholder="******">
-					</div>
-					<div id="send">
-						<input type="submit" value="Enviar">
-					</div>
-				</form>
-			</div>
-	</div>
-	<div id="dps">
-		<h3>Un producto</h3>
-		<img src="images/logo-dps.png" alt="">
-	</div>
-	
+	<ng-view></ng-view>
 </body>
 </html>
