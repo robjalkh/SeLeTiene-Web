@@ -1,0 +1,22 @@
+
+		<div class="info-top">
+			<ul>
+				<li><h3>{{ email }}</h3></li>
+				<li><button ng-click="logOut()" class="logout">Cerrar sesión</button></li>
+			</ul>
+		</div>
+		<table class="bordered">
+			<thead>
+				<th>Nombre</th>
+				<th>Tipo</th>
+				<th>Detalle</th>
+				<th></th>
+			</thead>
+			<tr class="row" ng-repeat="i in getNumber(number) track by $index">
+				<td>Olinguto {{$index}}</td>
+				<td>Producto {{$index}}</td>
+				<td>Empanadas {{$index}}</td>
+				<td><button ng-Click="openValidate($index)" class="validate">Validar</button></td>
+			</tr>
+			
+		</table>

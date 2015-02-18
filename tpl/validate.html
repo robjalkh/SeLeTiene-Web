@@ -1,13 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Validar</title>
-	<link rel="stylesheet" href="css/estilos.css">
-	<link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700' rel='stylesheet' type='text/css'>
-	<meta name="viewport" content="width=device-width,initial-scale=1"/>
-</head>
-<body>
+
 	<div id="form-comp">
 		<div class="form-valid">
 			<br>
@@ -40,18 +31,20 @@
 				  <input type="tel" placeholder=" Ej. 300 555 55 55" />
 				</div>
 				<div>
-					<label>Ciudad</label>
+					<label>Departamento</label>
 					<br>
-					<select class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" >
-						<option>Bogotá D.C.</option>
-						<option>Opción 2</option>
-						<option>Opción 3</option>
+					<select ng-model="myDeparment" ng-change="getCities(myDeparment.id)" class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" ng-options="department.name for department in Departments" ng-options="department.name for department in Departments">
+						<option selected >--Seleccionar--</option>
+											
 					</select>
 				</div>
 				<div>
-				  <label>Barrio</label>
+				  <label>Ciudad</label>
 				  <br>
-			  	  <input type="text" placeholder=" Ej. La Esmeralda" />
+			  	  <select ng-model="myCity"  class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" ng-options="city.name for city in Cities" ng-options="city.name for city in Cities">
+						<option selected >--Seleccionar--</option>
+											
+					</select>
 			  	</div>
 			</form>
 		</div>
@@ -84,7 +77,3 @@
 		</div>
 
 	</div>
-
-</body>
-		
-</html>
