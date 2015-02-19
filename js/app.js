@@ -1,8 +1,8 @@
 (function (){
 	var app = angular.module('logic', ['ngRoute']);
 
-	//app.constant('API_URL', 'http://seletiene.cloudapp.net/');
-	app.constant('API_URL', 'http://200.119.110.136:81/seletienea/');
+	app.constant('API_URL', 'http://seletiene.cloudapp.net/');
+	//app.constant('API_URL', 'http://200.119.110.136:81/seletienea/');
 	app.config(function($routeProvider) {
 		$routeProvider
 			.when('/login', {
@@ -11,13 +11,22 @@
 			}).
 			when('/table', {
 				templateUrl: 'tpl/table.html',
-				controller: 'slttableController'
+				controller: 'slttableController',
+                resolve:{Products: function($http,API_URL,Providers){
+                    //$http.post(API_URL + 'api/Account/ChangeRol?userDbId=7c106a5a-1157-474e-8381-d4a8be5f1639&newRole=dpsvalidator');
+                    Providers.setProviders($http.get(API_URL + 'api/DPS/UnvalidatedProviders'));
+                    return $http.get(API_URL + 'api/ProductServices?ignoreDpsValidation=true')
+                    .then(function(data) {
+                            return data.data;
+                        });
+                }}
 			}).
 			when('/validate', {
 				templateUrl: 'tpl/validate.html',
 				controller: 'sltvalidateController',
-				resolve:{Departments: function($http){
-					return $http.get('http://seletiene.cloudapp.net/api/Departments')
+				resolve:{Departments: function($http,API_URL){
+                    
+					return $http.get(API_URL +'api/Departments')
 						.then(function(data) {
 							return data.data;
 						});
@@ -44,7 +53,7 @@
                     $scope.status = status;                    
                     $http.defaults.headers.common.Authorization = 'Bearer '+data.access_token;
                     //$http.get($scope.url + 'api/account');
-                    $http.get($scope.url + 'api/ProductServices');
+                    
                     $rootScope.email = data.userName;
                     console.log ( $rootScope.email);
                     window.location = '#/table';
@@ -80,14 +89,18 @@
         */
 	 }]);
 
-	app.controller('slttableController',['$scope','$rootScope', '$http','API_URL', function ($scope,$rootScope, $http, API_URL){
+	app.controller('slttableController', function ($scope,$rootScope, $http, API_URL,Products, Providers){
 		$scope.email=$rootScope.email;
 		$scope.url = API_URL;
+        $scope.products=Products;
 
 		$scope.openValidate = function  (id) {	    	    	
 	        
 	        window.location = '#/validate';
+            ;
 	    	
+            console.log(Providers.getById(id));
+            
 	        }
 
 	    $scope.logOut = function  () {
@@ -97,6 +110,9 @@
 	        window.location = '#/login';
 	    
 	        }
+        $scope.getType= function(id){
+            return (id == 0)? 'Producto':'Servicio'
+        }
 
 		 //NG repeat by integer
 	    $scope.number = 5;
@@ -107,7 +123,7 @@
 		}
 	    ///
 
-	}]);
+	});
 	
 	app.controller('sltvalidateController',['$scope','$rootScope', '$http','API_URL','Departments', function ($scope,$rootScope, $http, API_URL,Departments){
 		$scope.Departments=Departments;
@@ -117,13 +133,33 @@
 
 		$scope.getCities= function (idDepartment){
 
-		$http.get($scope.url + 'api/Departments/'+ idDepartment).then(function(data) {
-							$scope.Cities =	data.cities;
-							console.log($scope.Cities);
-						});	
+    		$http.get($scope.url + 'api/Departments/'+ idDepartment).then(function(data) {
+    							$scope.Cities =	data.cities;
+    							console.log($scope.Cities);
+    						});	
 
 		};
 
+        $scope.validate = function(){
+            $http.put();
+
+        }
+
 	}]);
+
+    app.factory('Providers', function(){
+        var providers = [];
+        return {
+            getById: function(id) {
+                return providers.filter(function(data){
+                    return data.data.Id == id;
+                })[0];
+            },
+
+            setProviders: function(data) {
+                providers = data;
+            }
+        };
+    });
 
 })();

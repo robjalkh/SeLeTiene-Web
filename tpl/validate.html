@@ -10,17 +10,17 @@
 				<div>
 					<label>Nombre</label>
 					<br>
-					<input type="name" placeholder=" Ej. Pepito Pérez" />
+					<input ng-model="user.Name" type="name" placeholder=" Ej. Pepito Pérez" />
 				</div>
 				<div>
 				  <label>Email</label>
 				  <br>
-				  <input type="email" placeholder=" ejemplo@mail.com" />
+				  <input ng-model="user.Email" type="email" placeholder=" ejemplo@mail.com" />
 				</div>
 				<div>
 				  <label>Teléfono</label>
 				  <br>
-				  <input type="tel" placeholder=" Ej. 7 6357890" />
+				  <input ng-model="user.PhoneNumber" type="tel" placeholder=" Ej. 7 6357890" />
 				</div>
 			</form>
 			
@@ -28,12 +28,12 @@
 				<div>
 				  <label>Celular </label>
 				  <br>
-				  <input type="tel" placeholder=" Ej. 300 555 55 55" />
+				  <input ng-model="user.MobileNumber" type="tel" placeholder=" Ej. 300 555 55 55" />
 				</div>
 				<div>
 					<label>Departamento</label>
 					<br>
-					<select ng-model="myDeparment" ng-change="getCities(myDeparment.id)" class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" ng-options="department.name for department in Departments" ng-options="department.name for department in Departments">
+					<select ng-model="Department" ng-change="getCities(Department.id); DepartmentId = Department.id " class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" ng-options="department.name for department in Departments" ng-options="department.name for department in Departments">
 						<option selected >--Seleccionar--</option>
 											
 					</select>
@@ -41,7 +41,7 @@
 				<div>
 				  <label>Ciudad</label>
 				  <br>
-			  	  <select ng-model="myCity"  class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" ng-options="city.name for city in Cities" ng-options="city.name for city in Cities">
+			  	  <select ng-model="City"  class="combo"name="thelist" onChange="combo(this, 'theinput')" ng-change="user.CityId=City" onMouseOut="comboInit(this, 'theinput')" ng-options="city.name for city in Cities" ng-options="city.name for city in Cities">
 						<option selected >--Seleccionar--</option>
 											
 					</select>
@@ -69,9 +69,7 @@
 				</div>
 			</form>
 		</div>
-		<div class="barra-agregar">
-			<button class="agregar">+</button>
-		</div>
+		
 		<div id="send" class="send-validate">
 			<input type="submit" value="Validar">
 		</div>

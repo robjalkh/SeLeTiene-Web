@@ -12,11 +12,11 @@
 				<th>Detalle</th>
 				<th></th>
 			</thead>
-			<tr class="row" ng-repeat="i in getNumber(number) track by $index">
-				<td>Olinguto {{$index}}</td>
-				<td>Producto {{$index}}</td>
-				<td>Empanadas {{$index}}</td>
-				<td><button ng-Click="openValidate($index)" class="validate">Validar</button></td>
+			<tr class="row" ng-repeat="product in products | filter:{dpsValidated:false}">
+				<td> {{product.title + ' ' + product.dpsValidated}}</td>
+				<td> {{getType(product.type)}}</td>
+				<td> {{product.description}}</td>
+				<td><button ng-Click="openValidate(product.ownerId)" class="validate">Validar</button></td>
 			</tr>
 			
 		</table>
