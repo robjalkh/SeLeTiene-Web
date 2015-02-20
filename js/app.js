@@ -13,7 +13,7 @@
 				templateUrl: 'tpl/table.html',
 				controller: 'slttableController',
                 resolve:{Products: function($http,API_URL){
-                    //$http.post(API_URL + 'api/Account/ChangeRol?userDbId=7c106a5a-1157-474e-8381-d4a8be5f1639&newRole=dpsvalidator');
+                    //$http.post(API_URL + 'api/Account/ChangeRol?userDbId=olinguito.lab@gmail.com&newRole=dpsvalidator');
                     return $http.get(API_URL + 'api/ProductServices?ignoreDpsValidation=true')
                     .then(function(data) {
                             return data.data;
@@ -87,9 +87,27 @@
 		$scope.Departments=Departments;
 		$scope.Cities=[];
 		$scope.url = API_URL;
+		$scope.user  = {};
+		$scope.product  = {};
 		//console.log(Departments);
 		console.log($routeParams.idProduct);
 
+		$http.get($scope.url + 'api/ProductServices/'+ $routeParams.idProduct).success (function(data){
+	       console.log(data);
+	       $scope.user.Name = data.owner.name;
+	       $scope.user.MobileNumber = data.owner.mobileNumber;
+	       $scope.user.PhoneNumber = data.owner.phoneNumber;
+	       $scope.user.Email = data.owner.email;
+
+	       $scope.product.title = data.title;
+	       $scope.product.description = data.description;
+	       $scope.product.type = data.type;
+
+	    }).error(function(error){
+	        console.log(error);
+	    });		
+
+	    $scope.types = [{name: 'Producto', id: 0 },{ name: 'Servicio', id: 1 }];
 
 
 		$scope.getCities= function (idDepartment){
@@ -102,8 +120,16 @@
 		};
 
         $scope.validate = function(){
-            $http.put();
-
+            $scope.send = {};
+            $scope.send.productServiceId=1;
+            $scope.send.validated=true;
+            console.log($scope.send);
+            $http.post($scope.url + 'api/DPS/ValidateProductService',$scope.send).success (function(data){
+            	alert("Validado");
+            	window.location = '#/table';
+		    }).error(function(error){
+		        console.log(error);
+		    });
         }
 
 	});

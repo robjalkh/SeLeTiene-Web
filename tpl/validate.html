@@ -42,8 +42,7 @@
 				  <label>Ciudad</label>
 				  <br>
 			  	  <select ng-model="City"  class="combo"name="thelist" onChange="combo(this, 'theinput')" ng-change="user.CityId=City" onMouseOut="comboInit(this, 'theinput')" ng-options="city.name for city in Cities" ng-options="city.name for city in Cities">
-						<option selected >--Seleccionar--</option>
-											
+						<option selected >--Seleccionar--</option>				
 					</select>
 			  	</div>
 			</form>
@@ -55,23 +54,29 @@
 				<div class="oferta">
 					<label>Oferta</label>
 					<br>
-					<input type="name" placeholder=" Ej. Empanadas" />
+					<input ng-model="product.title" type="name" placeholder=" Ej. Empanadas" />
 				</div>
 			</form>
 			<form class="validando" id="subir-div" action="">
 				<div class="oferta">
 					<label>Producto o Servicio</label>
 					<br>
-					<select class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" >
-						<option>Producto</option>
-						<option>Servicio</option>
+					<select ng-model="product.type" class="combo"name="thelist" onChange="combo(this, 'theinput')" onMouseOut="comboInit(this, 'theinput')" >
+						<option ng-repeat="type in types" value="{{type.id}}">{{type.name}}</option>
 					</select>
+				</div>
+			</form>
+			<form class="send-validate validando" action="">
+				<div class="description">
+					<label>Descripcion (Incluye certiciaciones, cursos y horarios)</label>
+					<br>
+					<input ng-model="product.description" type="name" placeholder=" Ej. Empanadas" />
 				</div>
 			</form>
 		</div>
 		
 		<div id="send" class="send-validate">
-			<input type="submit" value="Validar">
+			<input type="submit" value="Validar" ng-click="validate();">
 		</div>
 
 	</div>
