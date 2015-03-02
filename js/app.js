@@ -2,7 +2,6 @@
 	var app = angular.module('logic', ['ngRoute']);
 
 	app.constant('API_URL', 'http://seletiene.cloudapp.net/');
-	//app.constant('API_URL', 'http://200.119.110.136:81/seletienea/');
 	app.config(function($routeProvider) {
 		$routeProvider
 			.when('/login', {
