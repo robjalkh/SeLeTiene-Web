@@ -1,7 +1,7 @@
 (function (){
 	var app = angular.module('logic', ['ngRoute']);
 
-	app.constant('API_URL', 'http://seletiene.cloudapp.net/');
+	app.constant('API_URL', 'http://201.245.123.114:8089/seletiene/');
 	//app.constant('API_URL', 'http://200.119.110.136:81/seletienea/');
 	app.config(function($routeProvider) {
 		$routeProvider
@@ -45,7 +45,6 @@
 		$scope.url = API_URL;
 
 		//$rootScope.email='';
-		
 		$scope.sendLogin = function() {
             $scope.user.grant_type = "password";            
             $http.post($scope.url + 'token', $scope.param($scope.user),{headers: {'Content-Type': 'application/x-www-form-urlencoded'}}).
@@ -69,12 +68,6 @@
 	        return str.join("&");
 	    
 	        }
-
-	    
-
-	    
-
-	   
 	        /*
         $http({method: 'POST', url: $scope.url+'/token', json: $templateCache}).
                 success(function(data, status){
