@@ -1,0 +1,24 @@
+		<div class="info-top">
+			<ul>
+				<li><h3>{{ email }}</h3></li>
+				<li><button ng-click="logOut()" class="logout">Cerrar sesión</button></li>
+			</ul>
+		</div>
+		<table class="bordered">
+			<thead>
+				<th>UserId</th>
+				<th>Name</th>
+				<th>MobileNumber</th>
+				<th>City</th>
+				<th>Department</th>
+				<th></th>
+			</thead>
+			<tr class="row" ng-repeat="product in products | filter:{dpsValidated:false}">
+				<td> {{product.UserId}}</td>
+				<td> {{product.Name}}</td>
+				<td> {{product.MobileNumber}}</td>
+				<td> {{product.City}}</td>
+				<td> {{product.Department}}</td>
+				<td><button ng-Click="openValidate(product.UserId)" class="validate">Validar</button></td>
+			</tr>
+		</table>

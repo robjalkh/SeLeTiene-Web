@@ -1,7 +1,7 @@
 (function (){
 	var app = angular.module('logic', ['ngRoute']);
 
-	app.constant('API_URL', 'http://seletiene.cloudapp.net/');
+	app.constant('API_URL', 'http://201.245.123.114:8089/seletiene');
 	app.config(function($routeProvider) {
 		$routeProvider
 			.when('/login', {
@@ -14,6 +14,18 @@
                 resolve:{Products: function($http,API_URL){
                     //$http.post(API_URL + 'api/Account/ChangeRol?userDbId=olinguito.lab@gmail.com&newRole=dpsvalidator');
                     return $http.get(API_URL + 'api/ProductServices?ignoreDpsValidation=true')
+                    .then(function(data) {
+                            return data.data;
+                    });
+                }}
+			}).
+			when('/users', {
+				templateUrl: 'tpl/users.html',
+				controller: 'sltusertableController',
+                resolve:{Products: function($http,API_URL){
+                    //$http.post(API_URL + 'api/Account/ChangeRol?userDbId=olinguito.lab@gmail.com&newRole=dpsvalidator');
+                    //http://201.245.123.114:8089/seletiene/api/DPS/UnvalidatedProviders
+                    return $http.get(API_URL + 'api/DPS/UnvalidatedProviders')
                     .then(function(data) {
                             return data.data;
                     });
