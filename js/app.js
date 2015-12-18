@@ -1,7 +1,7 @@
 (function (){
 	var app = angular.module('logic', ['ngRoute']);
 
-	app.constant('API_URL', 'http://201.245.123.114:8089/seletiene');
+	app.constant('API_URL', 'http://201.245.123.114:8089/seletiene/');
 	app.config(function($routeProvider) {
 		$routeProvider
 			.when('/login', {
@@ -22,12 +22,12 @@
 			when('/users', {
 				templateUrl: 'tpl/users.html',
 				controller: 'sltusertableController',
-                resolve:{Products: function($http,API_URL){
+                resolve:{Users: function($http,API_URL){
                     //$http.post(API_URL + 'api/Account/ChangeRol?userDbId=olinguito.lab@gmail.com&newRole=dpsvalidator');
                     //http://201.245.123.114:8089/seletiene/api/DPS/UnvalidatedProviders
                     return $http.get(API_URL + 'api/DPS/UnvalidatedProviders')
                     .then(function(data) {
-                            return data.data;
+                        return data.data;
                     });
                 }}
 			}).
@@ -59,7 +59,7 @@
                     $http.defaults.headers.common.Authorization = 'Bearer '+data.access_token;
                     $rootScope.email = data.userName;
                     console.log ( $rootScope.email);
-                    window.location = '#/table';
+                    window.location = '#/users';
                 });
         };  
         
@@ -70,6 +70,34 @@
 	        return str.join("&");
 	    }
 	 }]);
+
+
+	app.controller('sltusertableController', function ($scope,$rootScope, $http, API_URL,Users,$location){
+		$scope.email=$rootScope.email;
+		$scope.url = API_URL;
+        $scope.users=Users;
+
+		$scope.openValidate = function (id) {	    	    	
+			var r = confirm("¿Desea confirmar la validación?");
+			if (r == true) {
+	            $scope.params = {};
+	            $scope.params.UserDBId = $scope.users[id].Id;
+				$scope.params.UserValidated = true;
+				$scope.params.PhoneNumberConfirmed = true;
+				$scope.params.EmailConfirmed = true;
+
+	            $http.post($scope.url + 'api/DPS/ValidateProvider', $scope.params).success(function(data, status){
+                	console.log(id);
+            		$scope.users.splice(id, 1);
+	            });
+			}
+	    }
+	    $scope.logOut = function  () {
+	    	console.log('logout');
+	        $http.defaults.headers.common.Authorization='';
+	        window.location = '#/login';
+	    }
+	});
 
 	app.controller('slttableController', function ($scope,$rootScope, $http, API_URL,Products,$location){
 		$scope.email=$rootScope.email;

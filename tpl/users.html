@@ -13,12 +13,12 @@
 				<th>Department</th>
 				<th></th>
 			</thead>
-			<tr class="row" ng-repeat="product in products | filter:{dpsValidated:false}">
-				<td> {{product.UserId}}</td>
-				<td> {{product.Name}}</td>
-				<td> {{product.MobileNumber}}</td>
-				<td> {{product.City}}</td>
-				<td> {{product.Department}}</td>
-				<td><button ng-Click="openValidate(product.UserId)" class="validate">Validar</button></td>
+			<tr class="row" ng-repeat="user in users">
+				<td> {{user.UserId}}</td>
+				<td> {{user.Name}}</td>
+				<td> {{user.MobileNumber}}</td>
+				<td> {{user.City.Name}}</td>
+				<td> {{user.Department.Name}}</td>
+				<td><button ng-Click="openValidate($index)" class="validate">Validar</button></td>
 			</tr>
 		</table>
